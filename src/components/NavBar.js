@@ -1,18 +1,21 @@
 import { styled } from "styled-components";
 import logo from "../assets/pngwing.com.png";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function NavBar() {
+  const navigate = useNavigate();
+
   return (
     <ContainerNavBar>
       <Hearder>
         <img src={logo} alt="logotipo" />
       </Hearder>
       <Nav>
-        <div>Iniciar processo</div>
-        <div>Marcar entrevista</div>
-        <div>Aprovar candidato</div>
-        <div>Desclassificar candidato</div>
-        <div>Listar candidatos</div>
+        <Link to="/">Iniciar processo</Link>
+        <Link to="/interviw/schedule">Marcar entrevista</Link>
+        <Link to="/candidate/approve">Aprovar candidato</Link>
+        <Link to="/candidate/disqualify">Desclassificar candidato</Link>
+        <Link to="/candidate/list">Listar candidatos</Link>
       </Nav>
     </ContainerNavBar>
   );
@@ -20,8 +23,7 @@ export default function NavBar() {
 
 const ContainerNavBar = styled.div`
   background-color: brown;
-  width: 25vw;
-  min-width: 250px;
+  width: 300px;
   height: 100vh;
   position: fixed;
   left: 0;
@@ -48,7 +50,7 @@ const Nav = styled.nav`
   background-color: aqua;
   width: 100%;
 
-  div {
+  a {
     background-color: blanchedalmond;
     width: 100%;
     height: 40px;
