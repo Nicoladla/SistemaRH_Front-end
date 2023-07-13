@@ -39,7 +39,7 @@ export default function DisqualifyCandidate() {
     <main>
       <Title>Escolha qual candidato você deseja desqualificar:</Title>
 
-      <button onClick={disqualifyCandidate}>Aprovar candidato</button>
+      <button onClick={disqualifyCandidate}>Desqualificar candidato</button>
 
       <List>
         {candidates.map((candidates) => (
