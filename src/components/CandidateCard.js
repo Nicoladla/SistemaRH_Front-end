@@ -1,26 +1,32 @@
 import { styled } from "styled-components";
 import userImgDefault from "../assets/user.png";
 
-export default function CandidateCard({ list }) {
+export default function CandidateCard({
+  name,
+  id,
+  selectedCandidateId,
+  setSelectedCandidateId,
+}) {
+  
+  function updateSelectedCandidate() {
+    if (selectedCandidateId === id) {
+      setSelectedCandidateId(null);
+    } else {
+      setSelectedCandidateId(id);
+    }
+  }
+
   return (
-    <List>
-      {list.map((candidate) => {
-        return (
-          <Candidate>
-            <img src={userImgDefault} alt="Usuário padrão" />
-            <p>{candidate}</p>
-          </Candidate>
-        );
-      })}
-    </List>
+    <Candidate
+      onClick={updateSelectedCandidate}
+      selectedCandidateId={selectedCandidateId}
+      id={id}
+    >
+      <img src={userImgDefault} alt="Usuário padrão" />
+      <p>{name}</p>
+    </Candidate>
   );
 }
-
-const List = styled.ul`
-  background-color: yellowgreen;
-  display: flex;
-  flex-wrap: wrap;
-`;
 
 const Candidate = styled.li`
   background-color: blanchedalmond;
@@ -30,6 +36,8 @@ const Candidate = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
+  border: ${({ selectedCandidateId, id }) =>
+    selectedCandidateId === id ? "solid 5px #32CD32" : "none"};
   border-radius: 20px;
 
   img {

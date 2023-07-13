@@ -1,5 +1,5 @@
 export default function ListCandidates(){
     return (
-        <div>hello</div>
+        <div>EM CONSTRUÇÃO</div>
     )
 }

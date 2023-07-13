@@ -1,7 +1,7 @@
 
 export default function DisqualifyCandidate(){
     return (
-        <div>hello</div>
+        <div>EM CONSTRUÇÃO</div>
     )
 }
 
