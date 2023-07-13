@@ -4,8 +4,8 @@ import userImgDefault from "../assets/user.png";
 export default function CandidateCard({
   name,
   id,
-  selectedCandidateId,
   setSelectedCandidateId,
+  selectedCandidateId,
 }) {
   
   function updateSelectedCandidate() {
@@ -19,7 +19,7 @@ export default function CandidateCard({
   return (
     <Candidate
       onClick={updateSelectedCandidate}
-      selectedCandidateId={selectedCandidateId}
+      selectedCandidate={selectedCandidateId}
       id={id}
     >
       <img src={userImgDefault} alt="Usuário padrão" />
@@ -36,8 +36,8 @@ const Candidate = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: ${({ selectedCandidateId, id }) =>
-    selectedCandidateId === id ? "solid 5px #32CD32" : "none"};
+  border: ${({ selectedCandidate, id }) =>
+    selectedCandidate === id ? "solid 5px #32CD32" : "none"};
   border-radius: 20px;
 
   img {

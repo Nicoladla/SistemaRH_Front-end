@@ -7,13 +7,31 @@ import URL_BASE_API from "../constants/UrlBaseApi";
 export default function ScheduleInterview() {
   const [candidates, setCandidates] = useState([]);
   const [selectedCandidateId, setSelectedCandidateId] = useState(null);
+  const [reload, setReload] = useState({});
 
   useEffect(() => {
     axios
       .get(URL_BASE_API)
       .then((res) => setCandidates(res.data))
       .catch((err) => alert(err.response.data.message));
-  }, []);
+  }, [reload]);
+
+  async function scheduleInterview() {
+    if (!selectedCandidateId) {
+      return alert("Você deve selecionar um candidato.");
+    }
+
+    try {
+      await axios.post(`${URL_BASE_API}/schedule`, {
+        codCandidato: selectedCandidateId,
+      });
+      setSelectedCandidateId(null);
+      setReload({});
+    } catch (err) {
+      console.log(err);
+      alert(err.response.data.message);
+    }
+  }
 
   if (candidates.length === 0) return <div>loading</div>;
 
@@ -22,6 +40,8 @@ export default function ScheduleInterview() {
       <Title>
         Escolha com qual candidato você deseja marcar uma entrevista:
       </Title>
+
+      <button onClick={scheduleInterview}>Marcar entrevista</button>
 
       <List>
         {candidates.map((candidates) => {
@@ -50,4 +70,5 @@ const List = styled.ul`
   background-color: blueviolet;
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
 `;

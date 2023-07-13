@@ -1,5 +1,5 @@
 export default function ApproveCandidate(){
     return (
-        <div>EM CONTRUÇÃO</div>
+        <div>EM CONSTRUÇÃO</div>
     )
 }
