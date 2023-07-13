@@ -2,14 +2,14 @@ import { styled } from "styled-components";
 
 export default function RegisterCandidate() {
   return (
-    <div>
+    <main>
       <Title>Cadastre candidatos para o seu processo seletivo</Title>
       <Form>
         <label>Nome do candidato:</label>
         <input type="text" minLength={3} placeholder="Ex: Fulano" />
         <button>Cadastrar</button>
       </Form>
-    </div>
+    </main>
   );
 }
 

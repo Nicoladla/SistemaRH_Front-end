@@ -33,7 +33,7 @@ function App() {
 const ContainerApp = styled.main`
   background-color: chocolate;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   padding: 40px 20px 40px 320px;
 `;
 
